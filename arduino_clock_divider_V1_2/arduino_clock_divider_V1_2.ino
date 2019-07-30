@@ -1,4 +1,4 @@
-#include <FastLED.h>
+#include <FastLED.h> //https://github.com/FastLED/FastLED
 
 int out1 = 11;
 int out2 = 2;
