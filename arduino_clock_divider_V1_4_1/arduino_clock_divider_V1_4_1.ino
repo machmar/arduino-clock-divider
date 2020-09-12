@@ -46,13 +46,6 @@ void setup() {
 
   FastLED.addLeds<NEOPIXEL, 9>(led, 2);
 
-  //input-jack-init-BEGIN
-  bool inDetectState = digitalRead(inDetect);
-  inDetectPrev = inDetectState;
-  if (inDetectState) pinMode(outJack[0], INPUT);
-  else pinMode(outJack[0], INPUT_PULLUP);
-  //input-jack-init-END
-
   led[0] = 0xff0000;
   led[1] = 0x5500ff;
   FastLED.show();
@@ -63,6 +56,30 @@ void setup() {
   Serial.println("!WARNING! The module will run significantly slower with this DEBUG running.");
   Serial.println();
   #endif
+
+  //IN-jack-and-other-configuration-BEGIN
+  inDetectPrev = digitalRead(inDetect);
+  if (!digitalRead(inDetect)) {
+    pinMode(inJack, INPUT_PULLUP);
+    pinMode(outJack[0], OUTPUT);
+    pinMode(outJack[1], OUTPUT);
+    pinMode(outJack[8], OUTPUT);
+    pinMode(outJack[9], digitalRead(reset10S));
+    #ifdef SerialDebug
+    Serial.println("Device starting with division mode enabled.");
+    #endif
+  }
+  else {
+    pinMode(inJack, INPUT);
+    pinMode(outJack[0], INPUT);
+    pinMode(outJack[1], INPUT);
+    pinMode(outJack[8], INPUT);
+    pinMode(outJack[9], INPUT);
+    #ifdef SerialDebug
+    Serial.println("Device starting with logic mode enabled.");
+    #endif
+  }
+  //IN-jack-and-other-configuration-END
 }
 
 void refreshLeds(uint8_t brightness, uint8_t fps) {
