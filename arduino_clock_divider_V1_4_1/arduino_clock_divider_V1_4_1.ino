@@ -1,7 +1,7 @@
 #include <FastLED.h>
 
 //I want to rewrite the whole code for this new 4hp version too
-//!WARNING! The expander should be working but Im not sure as my expander broke.
+//!WARNING! The expander should be working but Im not sure as my expander broke. !EDIT! The expander works fine.
 
 const static uint8_t outJack[] = {12, 2, 3, 4, 5, 6, 7, 8, 13, 10};
 #define inJack 11
