@@ -23,6 +23,9 @@ Jumpers:
       connected   - the module will use its "divide by 10" output as a trigger input - when this 
                     output recievs a high signal, it will reset all division counters and set 
                     all outputs to low
+  leds - 
+      unconnected - the LEDs behind the panel will not be refreshed and thus the module will run faster
+      connected   - the LEDs behind the panel will be refreshed and thus the module will run slower but look better
       
 Logic mode can not be adjusted with any jumpers - those are exclusive for division mode
   In logic mode, the outputs 1, 2, 9, 10 become inputs and the outputs 3, 4, 5, 6, 7, 8 become 
@@ -56,6 +59,9 @@ The swÿtches expander replaces the jumpers on the back with physical switches w
       left  - the module will use its "divide by 10" output as a trigger input - when this 
               output recievs a high signal, it will reset all division counters and set 
               all outputs to low
+  leds - 
+      right - the LEDs behind the panel will be refreshed and thus the module will run slower but look better
+      left  - the LEDs behind the panel will not be refreshed and thus the module will run faster
   potentiometer - 
     when trigger output is enabled, the trigger lenght can be adjusted from 0 to 200 milliseconds.
     !NOTE! When the potentiometer is set fully to left, it is possible for the gate mode to be 
